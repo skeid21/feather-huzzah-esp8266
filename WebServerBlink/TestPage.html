@@ -1,0 +1,13 @@
+<html>
+<button id="ledButton"></button>
+<script language="JavaScript">
+    let button = document.getElementById("ledButton");
+    const statusUrl = "/status";
+    const switchLEDUrl = "/switch";
+    function switchLEDStatus() {
+        const switchRequest = new XMLHttpRequest();
+        switchRequest.onreadystatechange = (e) => { if (switchRequest.responseText == "on") { button.value = "Turn LED Off"; } else { button.value = "Turn LED On"; ledOn = true; } console.log(switchRequest.responseText); }; switchRequest.open("GET", switchLEDUrl); switchRequest.send();
+    }; function init() { const statusRequest = new XMLHttpRequest(); statusRequest.onreadystatechange = (e) => { if (statusRequst.responseText == "on") { button.innerHTML() = "Turn LED Off"; } else { button.innerHTML = "Turn LED On"; ledOn = true; } console.log(statusRequest.responseText); }; statusRequest.open("GET", statusUrl); statusRequst.send(); button.onclick = switchLEDStatus; } window.onload = init;
+</script>
+
+</html>
